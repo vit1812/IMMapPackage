@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IMMap
 import AVKit
 import Accelerate
@@ -97,8 +97,8 @@ extension ObservableType {
   final public func expand()
   final public func compress()
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension Reactive where Base : UIKit.UITabBarItem {
   public var badgeValue: IMMap.Binder<Swift.String?> {
@@ -116,14 +116,14 @@ extension ObserverType {
   public func onCompleted()
   public func onError(_ error: Swift.Error)
 }
-@objc open class TaskDelegate : ObjectiveC.NSObject {
+@objc @_hasMissingDesignatedInitializers open class TaskDelegate : ObjectiveC.NSObject {
   final public let queue: Foundation.OperationQueue
   public var data: Foundation.Data? {
     get
   }
   public var error: Swift.Error?
-  @objc override dynamic public init()
   @objc deinit
+  @objc override dynamic public init()
 }
 extension EKAttributes {
   public enum NotificationHapticFeedback {
@@ -248,15 +248,15 @@ extension UICollectionView : IMMap.HasPrefetchDataSource {
 open class RxCollectionViewDataSourcePrefetchingProxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSourcePrefetching>, IMMap.DelegateProxyType, UIKit.UICollectionViewDataSourcePrefetching {
   weak public var collectionView: UIKit.UICollectionView? {
     get
-    }
+  }
   public init(collectionView: IMMap.RxCollectionViewDataSourcePrefetchingProxy.ParentObject)
   public static func registerKnownImplementations()
   @objc public func collectionView(_ collectionView: UIKit.UICollectionView, prefetchItemsAt indexPaths: [Foundation.IndexPath])
   override open func setForwardToDelegate(_ forwardToDelegate: UIKit.UICollectionViewDataSourcePrefetching?, retainDelegate: Swift.Bool)
   @objc deinit
-  override public init<Proxy>(parentObject: UIKit.UICollectionView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSourcePrefetching>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UICollectionViewDataSourcePrefetching, Proxy.ParentObject == UIKit.UICollectionView
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSourcePrefetching>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSourcePrefetching>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UICollectionViewDataSourcePrefetching, Proxy.ParentObject == UIKit.UICollectionView
 }
-final public class PublishSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.Cancelable, IMMap.ObserverType {
+@_inheritsConvenienceInitializers final public class PublishSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.Cancelable, IMMap.ObserverType {
   public typealias SubjectObserverType = IMMap.PublishSubject<Element>
   final public var hasObservers: Swift.Bool {
     get
@@ -264,7 +264,7 @@ final public class PublishSubject<Element> : IMMap.Observable<Element>, IMMap.Su
   final public var isDisposed: Swift.Bool {
     get
   }
-  override public init()
+  public init()
   final public func on(_ event: IMMap.Event<Element>)
   override final public func subscribe<Observer>(_ observer: Observer) -> IMMap.Disposable where Element == Observer.Element, Observer : IMMap.ObserverType
   final public func asObserver() -> IMMap.PublishSubject<Element>
@@ -291,8 +291,8 @@ extension ObservableType {
   }
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   public init(with content: IMMap.EKProperty.LabelContent, activityIndicator: UIKit.UIActivityIndicatorView.Style)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension UITableView : IMMap.HasDataSource {
   public typealias DataSource = UIKit.UITableViewDataSource
@@ -300,14 +300,14 @@ extension UITableView : IMMap.HasDataSource {
 open class RxTableViewDataSourceProxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSource>, IMMap.DelegateProxyType, UIKit.UITableViewDataSource {
   weak public var tableView: UIKit.UITableView? {
     get
-    }
+  }
   public init(tableView: UIKit.UITableView)
   public static func registerKnownImplementations()
   @objc public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @objc public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
   override open func setForwardToDelegate(_ forwardToDelegate: UIKit.UITableViewDataSource?, retainDelegate: Swift.Bool)
-  override public init<Proxy>(parentObject: UIKit.UITableView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITableViewDataSource, Proxy.ParentObject == UIKit.UITableView
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSource>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITableViewDataSource, Proxy.ParentObject == UIKit.UITableView
 }
 public protocol KVORepresentable {
   associatedtype KVOType
@@ -332,7 +332,7 @@ public struct EKAttributes {
   public var windowLevel: IMMap.EKAttributes.WindowLevel
   public var position: IMMap.EKAttributes.Position
   public var precedence: IMMap.EKAttributes.Precedence
-  public var displayDuration: IMMap.EKAttributes.DisplayDuration
+  public var displayDuration: Swift.Double
   public var positionConstraints: IMMap.EKAttributes.PositionConstraints
   public var screenInteraction: IMMap.EKAttributes.UserInteraction
   public var entryInteraction: IMMap.EKAttributes.UserInteraction
@@ -360,22 +360,22 @@ extension UINavigationController : IMMap.HasDelegate {
 open class RxNavigationControllerDelegateProxy : IMMap.DelegateProxy<UIKit.UINavigationController, UIKit.UINavigationControllerDelegate>, IMMap.DelegateProxyType, UIKit.UINavigationControllerDelegate {
   weak public var navigationController: UIKit.UINavigationController? {
     get
-    }
+  }
   public init(navigationController: IMMap.RxNavigationControllerDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.UINavigationController, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UINavigationController, UIKit.UINavigationControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UINavigationControllerDelegate, Proxy.ParentObject == UIKit.UINavigationController
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UINavigationController, UIKit.UINavigationControllerDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UINavigationController, UIKit.UINavigationControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UINavigationControllerDelegate, Proxy.ParentObject == UIKit.UINavigationController
 }
 @objc public class EKXStatusBarMessageView : UIKit.UIView {
   public init(leading: IMMap.EKProperty.LabelContent, trailing: IMMap.EKProperty.LabelContent)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension NibResourceType {
   public func instantiate(withOwner ownerOrNil: Any?, options optionsOrNil: [UIKit.UINib.OptionsKey : Any]? = [:]) -> [Any]
 }
-@objc final public class EKAlertMessageView : IMMap.EKSimpleMessageView {
+@objc @_hasMissingDesignatedInitializers final public class EKAlertMessageView : IMMap.EKSimpleMessageView {
   public init(with message: IMMap.EKAlertMessage)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc deinit
@@ -423,21 +423,21 @@ extension UITabBar : IMMap.HasDelegate {
 open class RxTabBarDelegateProxy : IMMap.DelegateProxy<UIKit.UITabBar, UIKit.UITabBarDelegate>, IMMap.DelegateProxyType, UIKit.UITabBarDelegate {
   weak public var tabBar: UIKit.UITabBar? {
     get
-    }
+  }
   public init(tabBar: IMMap.RxTabBarDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
   open class func currentDelegate(for object: IMMap.RxTabBarDelegateProxy.ParentObject) -> UIKit.UITabBarDelegate?
   open class func setCurrentDelegate(_ delegate: UIKit.UITabBarDelegate?, to object: IMMap.RxTabBarDelegateProxy.ParentObject)
-  override public init<Proxy>(parentObject: UIKit.UITabBar, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITabBar, UIKit.UITabBarDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITabBarDelegate, Proxy.ParentObject == UIKit.UITabBar
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UITabBar, UIKit.UITabBarDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITabBar, UIKit.UITabBarDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITabBarDelegate, Proxy.ParentObject == UIKit.UITabBar
 }
 open class RxCollectionViewDelegateProxy : IMMap.RxScrollViewDelegateProxy, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDelegateFlowLayout {
   weak public var collectionView: UIKit.UICollectionView? {
     get
-    }
+  }
   public init(collectionView: UIKit.UICollectionView)
-  override public init(scrollView: IMMap.RxScrollViewDelegateProxy.ParentObject)
   @objc deinit
+  override public init(scrollView: IMMap.RxScrollViewDelegateProxy.ParentObject)
 }
 extension Reactive where Base : UIKit.UITextField {
   public var text: IMMap.ControlProperty<Swift.String?> {
@@ -694,14 +694,14 @@ extension UIScrollView : IMMap.HasDelegate {
 open class RxScrollViewDelegateProxy : IMMap.DelegateProxy<UIKit.UIScrollView, UIKit.UIScrollViewDelegate>, IMMap.DelegateProxyType, UIKit.UIScrollViewDelegate {
   weak public var scrollView: UIKit.UIScrollView? {
     get
-    }
+  }
   public init(scrollView: IMMap.RxScrollViewDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
   @objc public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
   @objc deinit
-  override public init<Proxy>(parentObject: UIKit.UIScrollView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIScrollView, UIKit.UIScrollViewDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIScrollViewDelegate, Proxy.ParentObject == UIKit.UIScrollView
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UIScrollView, UIKit.UIScrollViewDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIScrollView, UIKit.UIScrollViewDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIScrollViewDelegate, Proxy.ParentObject == UIKit.UIScrollView
 }
-public class ReplaySubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType, IMMap.Disposable {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ReplaySubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType, IMMap.Disposable {
   public typealias SubjectObserverType = IMMap.ReplaySubject<Element>
   public var hasObservers: Swift.Bool {
     get
@@ -712,7 +712,7 @@ public class ReplaySubject<Element> : IMMap.Observable<Element>, IMMap.SubjectTy
   public static func create(bufferSize: Swift.Int) -> IMMap.ReplaySubject<Element>
   public static func createUnbounded() -> IMMap.ReplaySubject<Element>
   @objc deinit
-  public typealias Observer = IMMap.ReplaySubject<Element>
+  public typealias Observer = IMMap.ReplaySubject<Element>.SubjectObserverType
 }
 extension Int : IMMap.KVORepresentable {
   public typealias KVOType = Foundation.NSNumber
@@ -998,8 +998,8 @@ extension Reactive where Base : UIKit.UISwitch {
 @objc public class EKImageNoteMessageView : IMMap.EKAccessoryNoteMessageView {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   public init(with content: IMMap.EKProperty.LabelContent, imageContent: IMMap.EKProperty.ImageContent)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 public protocol ColorResourceType {
   var bundle: Foundation.Bundle { get }
@@ -1022,11 +1022,11 @@ extension EKAttributes {
     public func hash(into hasher: inout Swift.Hasher)
   }
 }
-final public class SingleAssignmentDisposable : IMMap.DisposeBase, IMMap.Cancelable {
+@_inheritsConvenienceInitializers final public class SingleAssignmentDisposable : IMMap.DisposeBase, IMMap.Cancelable {
   final public var isDisposed: Swift.Bool {
     get
   }
-  override public init()
+  public init()
   final public func setDisposable(_ disposable: IMMap.Disposable)
   final public func dispose()
   @objc deinit
@@ -1034,7 +1034,7 @@ final public class SingleAssignmentDisposable : IMMap.DisposeBase, IMMap.Cancela
 extension ObservableType {
   public func startWith(_ elements: Self.Element...) -> IMMap.Observable<Self.Element>
 }
-@objc public class IMDataManagement : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers public class IMDataManagement : ObjectiveC.NSObject {
   @objc public static let shared: IMMap.IMDataManagement
   @objc public func setLanguageCode(_ code: Swift.String?)
   @objc override dynamic public init()
@@ -1050,7 +1050,7 @@ public struct HistoricalSchedulerTimeConverter : IMMap.VirtualTimeConverterType 
   public func offsetVirtualTime(_ time: IMMap.HistoricalSchedulerTimeConverter.VirtualTimeUnit, offset: IMMap.HistoricalSchedulerTimeConverter.VirtualTimeIntervalUnit) -> IMMap.HistoricalSchedulerTimeConverter.VirtualTimeUnit
   public func compareVirtualTime(_ lhs: IMMap.HistoricalSchedulerTimeConverter.VirtualTimeUnit, _ rhs: IMMap.HistoricalSchedulerTimeConverter.VirtualTimeUnit) -> IMMap.VirtualTimeComparison
 }
-public class ConnectableObservable<Element> : IMMap.Observable<Element>, IMMap.ConnectableObservableType {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ConnectableObservable<Element> : IMMap.Observable<Element>, IMMap.ConnectableObservableType {
   public func connect() -> IMMap.Disposable
   @objc deinit
 }
@@ -1080,10 +1080,10 @@ extension ObservableType {
 public struct EKColor : Swift.Equatable {
   public var dark: UIKit.UIColor {
     get
-    }
+  }
   public var light: UIKit.UIColor {
     get
-    }
+  }
   public init(light: UIKit.UIColor, dark: UIKit.UIColor)
   public init(_ unified: UIKit.UIColor)
   public init(rgb: Swift.Int)
@@ -1132,7 +1132,7 @@ extension UIFont {
 extension ObservableType where Self.Element : IMMap.EventConvertible {
   public func dematerialize() -> IMMap.Observable<Self.Element.Element>
 }
-@objc public class EKAccessoryNoteMessageView : UIKit.UIView {
+@objc @_inheritsConvenienceInitializers public class EKAccessoryNoteMessageView : UIKit.UIView {
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
@@ -1144,13 +1144,13 @@ public protocol Disposable {
 open class RxWKNavigationDelegateProxy : IMMap.DelegateProxy<WebKit.WKWebView, WebKit.WKNavigationDelegate>, IMMap.DelegateProxyType, WebKit.WKNavigationDelegate {
   weak public var webView: WebKit.WKWebView? {
     get
-    }
+  }
   public init(webView: IMMap.RxWKNavigationDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
   public static func currentDelegate(for object: WebKit.WKWebView) -> WebKit.WKNavigationDelegate?
   public static func setCurrentDelegate(_ delegate: WebKit.WKNavigationDelegate?, to object: WebKit.WKWebView)
-  override public init<Proxy>(parentObject: WebKit.WKWebView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<WebKit.WKWebView, WebKit.WKNavigationDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == WebKit.WKNavigationDelegate, Proxy.ParentObject == WebKit.WKWebView
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<WebKit.WKWebView, WebKit.WKNavigationDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<WebKit.WKWebView, WebKit.WKNavigationDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == WebKit.WKNavigationDelegate, Proxy.ParentObject == WebKit.WKWebView
 }
 public protocol ConnectableObservableType : IMMap.ObservableType {
   func connect() -> IMMap.Disposable
@@ -1296,8 +1296,8 @@ extension ObservableType {
   }
   public init(unselectedImage: IMMap.EKProperty.ImageContent, selectedImage: IMMap.EKProperty.ImageContent, selection: @escaping IMMap.EKRatingMessage.Selection)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension UITabBarController : IMMap.HasDelegate {
   public typealias Delegate = UIKit.UITabBarControllerDelegate
@@ -1305,11 +1305,11 @@ extension UITabBarController : IMMap.HasDelegate {
 open class RxTabBarControllerDelegateProxy : IMMap.DelegateProxy<UIKit.UITabBarController, UIKit.UITabBarControllerDelegate>, IMMap.DelegateProxyType, UIKit.UITabBarControllerDelegate {
   weak public var tabBar: UIKit.UITabBarController? {
     get
-    }
+  }
   public init(tabBar: IMMap.RxTabBarControllerDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.UITabBarController, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITabBarController, UIKit.UITabBarControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITabBarControllerDelegate, Proxy.ParentObject == UIKit.UITabBarController
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UITabBarController, UIKit.UITabBarControllerDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITabBarController, UIKit.UITabBarControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITabBarControllerDelegate, Proxy.ParentObject == UIKit.UITabBarController
 }
 extension ControlEvent {
   public func asSignal() -> IMMap.Signal<IMMap.ControlEvent<PropertyType>.Element>
@@ -1501,7 +1501,7 @@ extension EKAttributes {
 extension ObservableType {
   public static func repeatElement(_ element: Self.Element, scheduler: IMMap.ImmediateSchedulerType = CurrentThreadScheduler.instance) -> IMMap.Observable<Self.Element>
 }
-@objc public class EKSimpleMessageView : UIKit.UIView {
+@objc @_hasMissingDesignatedInitializers public class EKSimpleMessageView : UIKit.UIView {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
@@ -1513,11 +1513,11 @@ extension NSTextStorage : IMMap.HasDelegate {
 open class RxTextStorageDelegateProxy : IMMap.DelegateProxy<UIKit.NSTextStorage, UIKit.NSTextStorageDelegate>, IMMap.DelegateProxyType, UIKit.NSTextStorageDelegate {
   weak public var textStorage: UIKit.NSTextStorage? {
     get
-    }
+  }
   public init(textStorage: UIKit.NSTextStorage)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.NSTextStorage, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.NSTextStorage, UIKit.NSTextStorageDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.NSTextStorageDelegate, Proxy.ParentObject == UIKit.NSTextStorage
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.NSTextStorage, UIKit.NSTextStorageDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.NSTextStorage, UIKit.NSTextStorageDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.NSTextStorageDelegate, Proxy.ParentObject == UIKit.NSTextStorage
 }
 public class ConcurrentDispatchQueueScheduler : IMMap.SchedulerType {
   public typealias TimeInterval = Foundation.TimeInterval
@@ -1744,11 +1744,11 @@ extension SharedSequenceConvertibleType where Self.SharingStrategy == IMMap.Driv
 extension ObservableType {
   public func groupBy<Key>(keySelector: @escaping (Self.Element) throws -> Key) -> IMMap.Observable<IMMap.GroupedObservable<Key, Self.Element>> where Key : Swift.Hashable
 }
-final public class SerialDisposable : IMMap.DisposeBase, IMMap.Cancelable {
+@_inheritsConvenienceInitializers final public class SerialDisposable : IMMap.DisposeBase, IMMap.Cancelable {
   final public var isDisposed: Swift.Bool {
     get
   }
-  override public init()
+  public init()
   final public var disposable: IMMap.Disposable {
     get
     set(newDisposable)
@@ -1756,7 +1756,7 @@ final public class SerialDisposable : IMMap.DisposeBase, IMMap.Cancelable {
   final public func dispose()
   @objc deinit
 }
-final public class SwiftEntryKit {
+@_hasMissingDesignatedInitializers final public class SwiftEntryKit {
   public enum EntryDismissalDescriptor {
     case specific(entryName: Swift.String)
     case prioritizedLowerOrEqualTo(priority: IMMap.EKAttributes.Precedence.Priority)
@@ -2125,8 +2125,8 @@ extension DownloadResponse {
 extension Disposable {
   public func disposed(by bag: IMMap.DisposeBag)
 }
-final public class DisposeBag : IMMap.DisposeBase {
-  override public init()
+@_inheritsConvenienceInitializers final public class DisposeBag : IMMap.DisposeBase {
+  public init()
   final public func insert(_ disposable: IMMap.Disposable)
   @objc deinit
 }
@@ -2179,7 +2179,7 @@ extension AnimatedImageViewDelegate {
   public func animatedImageView(_ imageView: IMMap.AnimatedImageView, didPlayAnimationLoops count: Swift.UInt)
   public func animatedImageViewDidFinishAnimating(_ imageView: IMMap.AnimatedImageView)
 }
-@objc open class AnimatedImageView : UIKit.UIImageView {
+@objc @_inheritsConvenienceInitializers open class AnimatedImageView : UIKit.UIImageView {
   public enum RepeatCount : Swift.Equatable {
     case once
     case finite(count: Swift.UInt)
@@ -2395,7 +2395,7 @@ extension ObservableType {
 extension ObservableType {
   public func toArray() -> IMMap.Single<[Self.Element]>
 }
-public class Observable<Element> : IMMap.ObservableType {
+@_hasMissingDesignatedInitializers public class Observable<Element> : IMMap.ObservableType {
   public func subscribe<Observer>(_ observer: Observer) -> IMMap.Disposable where Element == Observer.Element, Observer : IMMap.ObserverType
   public func asObservable() -> IMMap.Observable<Element>
   @objc deinit
@@ -2415,7 +2415,7 @@ extension ObservableType where Self.Element : Swift.FixedWidthInteger {
 open class RxTextViewDelegateProxy : IMMap.RxScrollViewDelegateProxy, UIKit.UITextViewDelegate {
   weak public var textView: UIKit.UITextView? {
     get
-    }
+  }
   public init(textView: UIKit.UITextView)
   @objc open func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
   override public init(scrollView: IMMap.RxScrollViewDelegateProxy.ParentObject)
@@ -2490,13 +2490,13 @@ extension Indicator {
 }
 extension UIActivityIndicatorView.Style {
 }
-public class RetryContext {
+@_hasMissingDesignatedInitializers public class RetryContext {
   final public let source: IMMap.Source
   final public let error: IMMap.KingfisherError
   public var retriedCount: Swift.Int
   public var userInfo: Any? {
     get
-    }
+  }
   @objc deinit
 }
 public enum RetryDecision {
@@ -2539,7 +2539,7 @@ public protocol RequestRetrier {
   func should(_ manager: IMMap.SessionManager, retry request: IMMap.Request, with error: Swift.Error, completion: @escaping IMMap.RequestRetryCompletion)
 }
 public typealias HTTPHeaders = [Swift.String : Swift.String]
-open class Request {
+@_hasMissingDesignatedInitializers open class Request {
   public typealias ProgressHandler = (Foundation.Progress) -> Swift.Void
   open var delegate: IMMap.TaskDelegate {
     get
@@ -2556,7 +2556,7 @@ open class Request {
   }
   open var retryCount: Swift.UInt {
     get
-    }
+  }
   @discardableResult
   open func authenticate(user: Swift.String, password: Swift.String, persistence: Foundation.URLCredential.Persistence = .forSession) -> Self
   @discardableResult
@@ -2577,7 +2577,7 @@ extension Request : Swift.CustomDebugStringConvertible {
     get
   }
 }
-open class DataRequest : IMMap.Request {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class DataRequest : IMMap.Request {
   override open var request: Foundation.URLRequest? {
     get
   }
@@ -2590,7 +2590,7 @@ open class DataRequest : IMMap.Request {
   open func downloadProgress(queue: Dispatch.DispatchQueue = DispatchQueue.main, closure: @escaping IMMap.DataRequest.ProgressHandler) -> Self
   @objc deinit
 }
-open class DownloadRequest : IMMap.Request {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class DownloadRequest : IMMap.Request {
   public struct DownloadOptions : Swift.OptionSet {
     public let rawValue: Swift.UInt
     public static let createIntermediateDirectories: IMMap.DownloadRequest.DownloadOptions
@@ -2617,7 +2617,7 @@ open class DownloadRequest : IMMap.Request {
   open class func suggestedDownloadDestination(for directory: Foundation.FileManager.SearchPathDirectory = .documentDirectory, in domain: Foundation.FileManager.SearchPathDomainMask = .userDomainMask) -> IMMap.DownloadRequest.DownloadFileDestination
   @objc deinit
 }
-open class UploadRequest : IMMap.DataRequest {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class UploadRequest : IMMap.DataRequest {
   override open var request: Foundation.URLRequest? {
     get
   }
@@ -2628,7 +2628,7 @@ open class UploadRequest : IMMap.DataRequest {
   open func uploadProgress(queue: Dispatch.DispatchQueue = DispatchQueue.main, closure: @escaping IMMap.UploadRequest.ProgressHandler) -> Self
   @objc deinit
 }
-@available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 9.0, OSX 10.11, tvOS 9.0, *)
 open class StreamRequest : IMMap.Request {
   @objc deinit
 }
@@ -2665,7 +2665,7 @@ extension ImageDownloader {
 @available(*, deprecated, message: "RetrieveImageDownloadTask is removed. Use `DownloadTask` to cancel a task.")
 public struct RetrieveImageDownloadTask {
 }
-@available(*, deprecated, message: "RetrieveImageTask is removed. Use `DownloadTask` to cancel a task.")
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "RetrieveImageTask is removed. Use `DownloadTask` to cancel a task.")
 final public class RetrieveImageTask {
   @objc deinit
 }
@@ -2887,12 +2887,12 @@ extension EKAttributes {
     public func hash(into hasher: inout Swift.Hasher)
   }
 }
-final public class AsyncSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType {
+@_inheritsConvenienceInitializers final public class AsyncSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType {
   public typealias SubjectObserverType = IMMap.AsyncSubject<Element>
   final public var hasObservers: Swift.Bool {
     get
   }
-  override public init()
+  public init()
   final public func on(_ event: IMMap.Event<Element>)
   override final public func subscribe<Observer>(_ observer: Observer) -> IMMap.Disposable where Element == Observer.Element, Observer : IMMap.ObserverType
   final public func asObserver() -> IMMap.AsyncSubject<Element>
@@ -3101,7 +3101,7 @@ public struct ReuseIdentifier<Reusable> : IMMap.ReuseIdentifierType {
   @objc func imMapViewControllerWillClose(_ imMapViewController: IMMap.IMMapViewController)
   @objc func imMapViewController(_ imMapViewController: IMMap.IMMapViewController, willShare link: Swift.String)
 }
-@objc public class IMMapViewController : UIKit.UIViewController {
+@objc @_inheritsConvenienceInitializers public class IMMapViewController : UIKit.UIViewController {
   @objc public var delegate: IMMap.IMMapViewControllerDelegate?
   @objc public var isAlwaysOpenSearchView: Swift.Bool
   @objc public class func mapViewController() -> IMMap.IMMapViewController?
@@ -3268,7 +3268,7 @@ public struct KingfisherParsedOptionsInfo {
   public var keepCurrentImageWhileLoading: Swift.Bool
   public var onlyLoadFirstFrame: Swift.Bool
   public var cacheOriginalImage: Swift.Bool
-  public var onFailureImage: Swift.Optional<IMMap.KFCrossPlatformImage?>
+  public var onFailureImage: IMMap.KFCrossPlatformImage??
   public var alsoPrefetchToMemory: Swift.Bool
   public var loadDiskFileSynchronously: Swift.Bool
   public var memoryCacheExpiration: IMMap.StorageExpiration?
@@ -3409,7 +3409,7 @@ extension ObservableType {
   public func scan<A>(into seed: A, accumulator: @escaping (inout A, Self.Element) throws -> Swift.Void) -> IMMap.Observable<A>
   public func scan<A>(_ seed: A, accumulator: @escaping (A, Self.Element) throws -> A) -> IMMap.Observable<A>
 }
-@objc final public class EKNotificationMessageView : IMMap.EKSimpleMessageView {
+@objc @_hasMissingDesignatedInitializers final public class EKNotificationMessageView : IMMap.EKSimpleMessageView {
   public init(with message: IMMap.EKNotificationMessage)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
@@ -3434,7 +3434,7 @@ extension EKAttributes {
     case enabled(swipeable: Swift.Bool, pullbackAnimation: IMMap.EKAttributes.Scroll.PullbackAnimation)
   }
 }
-final public class ConcurrentMainScheduler : IMMap.SchedulerType {
+@_hasMissingDesignatedInitializers final public class ConcurrentMainScheduler : IMMap.SchedulerType {
   public typealias TimeInterval = Foundation.TimeInterval
   public typealias Time = Foundation.Date
   final public var now: Foundation.Date {
@@ -3475,7 +3475,7 @@ public struct StringResource : IMMap.StringResourceType {
 open class RxTableViewDelegateProxy : IMMap.RxScrollViewDelegateProxy, UIKit.UITableViewDelegate {
   weak public var tableView: UIKit.UITableView? {
     get
-    }
+  }
   public init(tableView: UIKit.UITableView)
   override public init(scrollView: IMMap.RxScrollViewDelegateProxy.ParentObject)
   @objc deinit
@@ -3546,14 +3546,14 @@ extension UICollectionView : IMMap.HasDataSource {
 open class RxCollectionViewDataSourceProxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSource>, IMMap.DelegateProxyType, UIKit.UICollectionViewDataSource {
   weak public var collectionView: UIKit.UICollectionView? {
     get
-    }
+  }
   public init(collectionView: IMMap.RxCollectionViewDataSourceProxy.ParentObject)
   public static func registerKnownImplementations()
   @objc public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
   @objc public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
   override open func setForwardToDelegate(_ forwardToDelegate: UIKit.UICollectionViewDataSource?, retainDelegate: Swift.Bool)
-  override public init<Proxy>(parentObject: UIKit.UICollectionView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UICollectionViewDataSource, Proxy.ParentObject == UIKit.UICollectionView
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSource>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UICollectionView, UIKit.UICollectionViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UICollectionViewDataSource, Proxy.ParentObject == UIKit.UICollectionView
 }
 public protocol ObservableType : IMMap.ObservableConvertibleType {
   func subscribe<Observer>(_ observer: Observer) -> IMMap.Disposable where Observer : IMMap.ObserverType, Self.Element == Observer.Element
@@ -3757,19 +3757,19 @@ extension UITableView : IMMap.HasPrefetchDataSource {
 open class RxTableViewDataSourcePrefetchingProxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSourcePrefetching>, IMMap.DelegateProxyType, UIKit.UITableViewDataSourcePrefetching {
   weak public var tableView: UIKit.UITableView? {
     get
-    }
+  }
   public init(tableView: IMMap.RxTableViewDataSourcePrefetchingProxy.ParentObject)
   public static func registerKnownImplementations()
   @objc public func tableView(_ tableView: UIKit.UITableView, prefetchRowsAt indexPaths: [Foundation.IndexPath])
   override open func setForwardToDelegate(_ forwardToDelegate: UIKit.UITableViewDataSourcePrefetching?, retainDelegate: Swift.Bool)
   @objc deinit
-  override public init<Proxy>(parentObject: UIKit.UITableView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSourcePrefetching>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITableViewDataSourcePrefetching, Proxy.ParentObject == UIKit.UITableView
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSourcePrefetching>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UITableView, UIKit.UITableViewDataSourcePrefetching>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UITableViewDataSourcePrefetching, Proxy.ParentObject == UIKit.UITableView
 }
-public class SessionDataTask {
+@_hasMissingDesignatedInitializers public class SessionDataTask {
   public typealias CancelToken = Swift.Int
   public var mutableData: Foundation.Data {
     get
-    }
+  }
   final public let task: Foundation.URLSessionDataTask
   @objc deinit
 }
@@ -3973,7 +3973,7 @@ extension Array where Element : IMMap.QLView {
 }
 public struct Logging {
   public typealias LogURLRequest = (Foundation.URLRequest) -> Swift.Bool
-  public static var URLRequests: IMMap.Logging.LogURLRequest
+  public static var URLRequests: (Foundation.URLRequest) -> Swift.Bool
 }
 extension EKAttributes {
   public struct LifecycleEvents {
@@ -3994,8 +3994,8 @@ extension EKAttributes {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   final public func makeFirstResponder()
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension ObservableType {
   public func timeout(_ dueTime: IMMap.RxTimeInterval, scheduler: IMMap.SchedulerType) -> IMMap.Observable<Self.Element>
@@ -4017,11 +4017,11 @@ extension UISearchController : IMMap.HasDelegate {
 open class RxSearchControllerDelegateProxy : IMMap.DelegateProxy<UIKit.UISearchController, UIKit.UISearchControllerDelegate>, IMMap.DelegateProxyType, UIKit.UISearchControllerDelegate {
   weak public var searchController: UIKit.UISearchController? {
     get
-    }
+  }
   public init(searchController: UIKit.UISearchController)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.UISearchController, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UISearchController, UIKit.UISearchControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UISearchControllerDelegate, Proxy.ParentObject == UIKit.UISearchController
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UISearchController, UIKit.UISearchControllerDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UISearchController, UIKit.UISearchControllerDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UISearchControllerDelegate, Proxy.ParentObject == UIKit.UISearchController
 }
 extension SharedSequenceConvertibleType where Self.SharingStrategy == IMMap.SignalSharingStrategy {
   public func emit<Observer>(to observer: Observer) -> IMMap.Disposable where Observer : IMMap.ObserverType, Self.Element == Observer.Element
@@ -4035,8 +4035,8 @@ extension SharedSequenceConvertibleType where Self.SharingStrategy == IMMap.Sign
 @objc final public class EKRatingMessageView : UIKit.UIView {
   public init(with message: IMMap.EKRatingMessage)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 public struct EKRatingMessage {
   public typealias Selection = (Swift.Int) -> Swift.Void
@@ -4063,7 +4063,7 @@ public struct DownloadTask {
 }
 open class ImageDownloader {
   public static let `default`: IMMap.ImageDownloader
-  open var downloadTimeout: Foundation.TimeInterval
+  open var downloadTimeout: Swift.Double
   open var trustedHosts: Swift.Set<Swift.String>?
   open var sessionConfiguration: Foundation.URLSessionConfiguration {
     get
@@ -4093,14 +4093,14 @@ extension UIPickerView : IMMap.HasDataSource {
 public class RxPickerViewDataSourceProxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDataSource>, IMMap.DelegateProxyType, UIKit.UIPickerViewDataSource {
   weak public var pickerView: UIKit.UIPickerView? {
     get
-    }
+  }
   public init(pickerView: IMMap.RxPickerViewDataSourceProxy.ParentObject)
   public static func registerKnownImplementations()
   @objc public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
   @objc public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
   override public func setForwardToDelegate(_ forwardToDelegate: UIKit.UIPickerViewDataSource?, retainDelegate: Swift.Bool)
-  override public init<Proxy>(parentObject: UIKit.UIPickerView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIPickerViewDataSource, Proxy.ParentObject == UIKit.UIPickerView
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDataSource>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDataSource>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIPickerViewDataSource, Proxy.ParentObject == UIKit.UIPickerView
 }
 extension Reactive where Base : UIKit.UIImageView {
   public var image: IMMap.Binder<UIKit.UIImage?> {
@@ -4115,7 +4115,7 @@ extension Reactive where Base : UIKit.UIAlertAction {
     get
   }
 }
-public class SerialDispatchQueueScheduler : IMMap.SchedulerType {
+@_hasMissingDesignatedInitializers public class SerialDispatchQueueScheduler : IMMap.SchedulerType {
   public typealias TimeInterval = Foundation.TimeInterval
   public typealias Time = Foundation.Date
   public var now: Foundation.Date {
@@ -4135,13 +4135,13 @@ extension Reactive where Base : UIKit.UINavigationItem {
     get
   }
 }
-final public class CompositeDisposable : IMMap.DisposeBase, IMMap.Cancelable {
+@_inheritsConvenienceInitializers final public class CompositeDisposable : IMMap.DisposeBase, IMMap.Cancelable {
   public struct DisposeKey {
   }
   final public var isDisposed: Swift.Bool {
     get
   }
-  override public init()
+  public init()
   public init(_ disposable1: IMMap.Disposable, _ disposable2: IMMap.Disposable)
   public init(_ disposable1: IMMap.Disposable, _ disposable2: IMMap.Disposable, _ disposable3: IMMap.Disposable)
   public init(_ disposable1: IMMap.Disposable, _ disposable2: IMMap.Disposable, _ disposable3: IMMap.Disposable, _ disposable4: IMMap.Disposable, _ disposables: IMMap.Disposable...)
@@ -4196,7 +4196,7 @@ public struct FontResource : IMMap.FontResourceType {
   public let fontName: Swift.String
   public init(fontName: Swift.String)
 }
-final public class BehaviorSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType, IMMap.Cancelable {
+@_hasMissingDesignatedInitializers final public class BehaviorSubject<Element> : IMMap.Observable<Element>, IMMap.SubjectType, IMMap.ObserverType, IMMap.Cancelable {
   public typealias SubjectObserverType = IMMap.BehaviorSubject<Element>
   final public var hasObservers: Swift.Bool {
     get
@@ -4685,7 +4685,7 @@ public struct DownsamplingImageProcessor : IMMap.ImageProcessor {
 public func >> (left: IMMap.ImageProcessor, right: IMMap.ImageProcessor) -> IMMap.ImageProcessor
 infix operator |> : AdditionPrecedence
 public func |> (left: IMMap.ImageProcessor, right: IMMap.ImageProcessor) -> IMMap.ImageProcessor
-final public class MainScheduler : IMMap.SerialDispatchQueueScheduler {
+@_hasMissingDesignatedInitializers final public class MainScheduler : IMMap.SerialDispatchQueueScheduler {
   public init()
   public static let instance: IMMap.MainScheduler
   public static let asyncInstance: IMMap.SerialDispatchQueueScheduler
@@ -4695,8 +4695,8 @@ final public class MainScheduler : IMMap.SerialDispatchQueueScheduler {
 }
 public class HistoricalScheduler : IMMap.VirtualTimeScheduler<IMMap.HistoricalSchedulerTimeConverter> {
   public init(initialClock: IMMap.RxTime = Date(timeIntervalSince1970: 0))
-  override public init(initialClock: IMMap.HistoricalSchedulerTimeConverter.VirtualTimeUnit, converter: IMMap.HistoricalSchedulerTimeConverter)
   @objc deinit
+  override public init(initialClock: IMMap.VirtualTimeScheduler<IMMap.HistoricalSchedulerTimeConverter>.VirtualTime, converter: IMMap.HistoricalSchedulerTimeConverter)
 }
 public struct GroupedObservable<Key, Element> : IMMap.ObservableType {
   public let key: Key
@@ -4914,7 +4914,7 @@ extension Reactive where Base : UIKit.UIPageControl {
 extension Disposables {
   public static func create(with dispose: @escaping () -> Swift.Void) -> IMMap.Cancelable
 }
-open class NetworkReachabilityManager {
+@_hasMissingDesignatedInitializers open class NetworkReachabilityManager {
   public enum NetworkReachabilityStatus {
     case unknown
     case notReachable
@@ -5055,11 +5055,11 @@ extension UISearchBar : IMMap.HasDelegate {
 open class RxSearchBarDelegateProxy : IMMap.DelegateProxy<UIKit.UISearchBar, UIKit.UISearchBarDelegate>, IMMap.DelegateProxyType, UIKit.UISearchBarDelegate {
   weak public var searchBar: UIKit.UISearchBar? {
     get
-    }
+  }
   public init(searchBar: IMMap.RxSearchBarDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.UISearchBar, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UISearchBar, UIKit.UISearchBarDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UISearchBarDelegate, Proxy.ParentObject == UIKit.UISearchBar
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UISearchBar, UIKit.UISearchBarDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UISearchBar, UIKit.UISearchBarDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UISearchBarDelegate, Proxy.ParentObject == UIKit.UISearchBar
 }
 @available(iOS 8.0, *)
 extension Reactive where Base : UIKit.UISearchController {
@@ -5132,11 +5132,11 @@ extension UIPickerView : IMMap.HasDelegate {
 open class RxPickerViewDelegateProxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDelegate>, IMMap.DelegateProxyType, UIKit.UIPickerViewDelegate {
   weak public var pickerView: UIKit.UIPickerView? {
     get
-    }
+  }
   public init(pickerView: IMMap.RxPickerViewDelegateProxy.ParentObject)
   public static func registerKnownImplementations()
-  override public init<Proxy>(parentObject: UIKit.UIPickerView, delegateProxy: τ_0_0.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIPickerViewDelegate, Proxy.ParentObject == UIKit.UIPickerView
   @objc deinit
+  override public init<Proxy>(parentObject: IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDelegate>.ParentObject, delegateProxy: Proxy.Type) where Proxy : IMMap.DelegateProxy<UIKit.UIPickerView, UIKit.UIPickerViewDelegate>, Proxy : IMMap.DelegateProxyType, Proxy.Delegate == UIKit.UIPickerViewDelegate, Proxy.ParentObject == UIKit.UIPickerView
 }
 extension Reactive where Base : UIKit.UISearchBar {
   public var delegate: IMMap.DelegateProxy<UIKit.UISearchBar, UIKit.UISearchBarDelegate> {
@@ -5171,7 +5171,7 @@ extension Reactive where Base : UIKit.UISearchBar {
   }
   public func setDelegate(_ delegate: UIKit.UISearchBarDelegate) -> IMMap.Disposable
 }
-public class CurrentThreadScheduler : IMMap.ImmediateSchedulerType {
+@_hasMissingDesignatedInitializers public class CurrentThreadScheduler : IMMap.ImmediateSchedulerType {
   public static let instance: IMMap.CurrentThreadScheduler
   public static var isScheduleRequired: Swift.Bool {
     get
@@ -5319,7 +5319,7 @@ extension PrimitiveSequenceType where Self.Element == Swift.Never, Self.Trait ==
   public static func zip(_ sources: [IMMap.Completable]) -> IMMap.Completable
   public static func zip(_ sources: IMMap.Completable...) -> IMMap.Completable
 }
-@objc open class AFSessionDelegate : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers open class AFSessionDelegate : ObjectiveC.NSObject {
   open var sessionDidBecomeInvalidWithError: ((Foundation.URLSession, Swift.Error?) -> Swift.Void)?
   open var sessionDidReceiveChallenge: ((Foundation.URLSession, Foundation.URLAuthenticationChallenge) -> (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?))?
   open var sessionDidReceiveChallengeWithCompletion: ((Foundation.URLSession, Foundation.URLAuthenticationChallenge, @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void) -> Swift.Void)?
@@ -5435,7 +5435,7 @@ public typealias PrefetcherProgressBlock = (([IMMap.Resource], [IMMap.Resource],
 public typealias PrefetcherSourceProgressBlock = (([IMMap.Source], [IMMap.Source], [IMMap.Source]) -> Swift.Void)
 public typealias PrefetcherCompletionHandler = (([IMMap.Resource], [IMMap.Resource], [IMMap.Resource]) -> Swift.Void)
 public typealias PrefetcherSourceCompletionHandler = (([IMMap.Source], [IMMap.Source], [IMMap.Source]) -> Swift.Void)
-public class ImagePrefetcher : Swift.CustomStringConvertible {
+@_hasMissingDesignatedInitializers public class ImagePrefetcher : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -5489,7 +5489,7 @@ public class KingfisherManager {
   public func retrieveImage(with source: IMMap.Source, options: IMMap.KingfisherOptionsInfo? = nil, progressBlock: IMMap.DownloadProgressBlock? = nil, downloadTaskUpdated: IMMap.DownloadTaskUpdatedBlock? = nil, completionHandler: ((IMMap.KFResult<IMMap.RetrieveImageResult, IMMap.KingfisherError>) -> Swift.Void)?) -> IMMap.DownloadTask?
   @objc deinit
 }
-@objc final public class EKRatingSymbolsContainerView : UIKit.UIView {
+@objc @_inheritsConvenienceInitializers final public class EKRatingSymbolsContainerView : UIKit.UIView {
   final public func setup(with message: IMMap.EKRatingMessage, externalSelection: @escaping IMMap.EKRatingMessage.Selection)
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc required dynamic public init?(coder: Foundation.NSCoder)
@@ -5644,7 +5644,7 @@ extension ObservableType {
 public enum SharingScheduler {
   public static var make: () -> IMMap.SchedulerType {
     get
-    }
+  }
   public static func mock(scheduler: IMMap.SchedulerType, action: () -> Swift.Void)
   public static func mock(makeScheduler: @escaping () -> IMMap.SchedulerType, action: () -> Swift.Void)
 }
@@ -5758,10 +5758,10 @@ extension KingfisherWrapper where Base : UIKit.NSTextAttachment {
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   final public func becomeFirstResponder(with textFieldIndex: Swift.Int)
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
-final public class RefCountDisposable : IMMap.DisposeBase, IMMap.Cancelable {
+@_hasMissingDesignatedInitializers final public class RefCountDisposable : IMMap.DisposeBase, IMMap.Cancelable {
   final public var isDisposed: Swift.Bool {
     get
   }
@@ -5812,14 +5812,14 @@ public struct JSON {
   public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
   public init(_ object: Any)
   public init(parseJSON jsonString: Swift.String)
-  mutating public func merge(with other: IMMap.JSON) throws
+  public mutating func merge(with other: IMMap.JSON) throws
   public func merged(with other: IMMap.JSON) throws -> IMMap.JSON
-  public var type: IMMap.Type {
+  public var type: IMMap.`Type` {
     get
-    }
+  }
   public var error: IMMap.SwiftyJSONError? {
     get
-    }
+  }
   public var object: Any {
     get
     set
@@ -6149,8 +6149,8 @@ extension Reactive where Base : UIKit.UISlider {
   public init(with message: IMMap.EKPopUpMessage)
   @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
 }
 extension Reactive where Base : UIKit.UITabBar {
   public var willBeginCustomizing: IMMap.ControlEvent<[UIKit.UITabBarItem]> {
@@ -6192,7 +6192,7 @@ public struct ImageProgressive {
   public static let `default`: IMMap.ImageProgressive
   public init(isBlur: Swift.Bool, isFastestScan: Swift.Bool, scanInterval: Foundation.TimeInterval)
 }
-public class DisposeBase {
+@_hasMissingDesignatedInitializers public class DisposeBase {
   @objc deinit
 }
 extension UICollectionView {
@@ -6279,6 +6279,7 @@ extension IMMap.EKAttributes.DisplayMode : Swift.Hashable {}
 extension IMMap.EKAttributes.Animation.Translate.AnchorPosition : Swift.Hashable {}
 extension IMMap.EKAttributes.PositionConstraints.Rotation.SupportedInterfaceOrientation : Swift.Equatable {}
 extension IMMap.EKAttributes.PositionConstraints.Rotation.SupportedInterfaceOrientation : Swift.Hashable {}
+extension IMMap.ImageFormat : Swift.Equatable {}
 extension IMMap.ImageFormat : Swift.Hashable {}
 extension IMMap.HTTPMethod : Swift.Equatable {}
 extension IMMap.HTTPMethod : Swift.Hashable {}
@@ -6295,6 +6296,7 @@ extension IMMap.EKAttributes.Position : Swift.Equatable {}
 extension IMMap.EKAttributes.Position : Swift.Hashable {}
 extension IMMap.SubjectLifetimeScope : Swift.Equatable {}
 extension IMMap.SubjectLifetimeScope : Swift.Hashable {}
+extension IMMap.CacheType : Swift.Equatable {}
 extension IMMap.CacheType : Swift.Hashable {}
 extension IMMap.RxCocoaInterceptionMechanism : Swift.Equatable {}
 extension IMMap.RxCocoaInterceptionMechanism : Swift.Hashable {}
@@ -6304,14 +6306,15 @@ extension IMMap.TakeUntilBehavior : Swift.Equatable {}
 extension IMMap.TakeUntilBehavior : Swift.Hashable {}
 extension IMMap.ContentMode : Swift.Equatable {}
 extension IMMap.ContentMode : Swift.Hashable {}
+extension IMMap.QLAxis : Swift.Equatable {}
 extension IMMap.QLAxis : Swift.Hashable {}
 extension IMMap.NetworkReachabilityManager.ConnectionType : Swift.Equatable {}
 extension IMMap.NetworkReachabilityManager.ConnectionType : Swift.Hashable {}
 extension IMMap.SwiftyJSONError : Swift.Equatable {}
 extension IMMap.SwiftyJSONError : Swift.Hashable {}
 extension IMMap.SwiftyJSONError : Swift.RawRepresentable {}
-extension IMMap.Type : Swift.Equatable {}
-extension IMMap.Type : Swift.Hashable {}
-extension IMMap.Type : Swift.RawRepresentable {}
+extension IMMap.`Type` : Swift.Equatable {}
+extension IMMap.`Type` : Swift.Hashable {}
+extension IMMap.`Type` : Swift.RawRepresentable {}
 extension IMMap.writingOptionsKeys : Swift.Equatable {}
 extension IMMap.writingOptionsKeys : Swift.Hashable {}
